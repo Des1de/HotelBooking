@@ -1,0 +1,12 @@
+/home/des1de/RiderProjects/HotelBooking/HotelBooking.Domain/bin/Debug/net7.0/HotelBooking.Domain.deps.json
+/home/des1de/RiderProjects/HotelBooking/HotelBooking.Domain/bin/Debug/net7.0/HotelBooking.Domain.dll
+/home/des1de/RiderProjects/HotelBooking/HotelBooking.Domain/bin/Debug/net7.0/HotelBooking.Domain.pdb
+/home/des1de/RiderProjects/HotelBooking/HotelBooking.Domain/obj/Debug/net7.0/HotelBooking.Domain.csproj.AssemblyReference.cache
+/home/des1de/RiderProjects/HotelBooking/HotelBooking.Domain/obj/Debug/net7.0/HotelBooking.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/home/des1de/RiderProjects/HotelBooking/HotelBooking.Domain/obj/Debug/net7.0/HotelBooking.Domain.AssemblyInfoInputs.cache
+/home/des1de/RiderProjects/HotelBooking/HotelBooking.Domain/obj/Debug/net7.0/HotelBooking.Domain.AssemblyInfo.cs
+/home/des1de/RiderProjects/HotelBooking/HotelBooking.Domain/obj/Debug/net7.0/HotelBooking.Domain.csproj.CoreCompileInputs.cache
+/home/des1de/RiderProjects/HotelBooking/HotelBooking.Domain/obj/Debug/net7.0/HotelBooking.Domain.dll
+/home/des1de/RiderProjects/HotelBooking/HotelBooking.Domain/obj/Debug/net7.0/refint/HotelBooking.Domain.dll
+/home/des1de/RiderProjects/HotelBooking/HotelBooking.Domain/obj/Debug/net7.0/HotelBooking.Domain.pdb
+/home/des1de/RiderProjects/HotelBooking/HotelBooking.Domain/obj/Debug/net7.0/ref/HotelBooking.Domain.dll

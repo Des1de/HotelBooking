@@ -4,14 +4,77 @@
     "/home/des1de/RiderProjects/HotelBooking/HotelBooking/HotelBooking.csproj": {}
   },
   "projects": {
-    "/home/des1de/RiderProjects/HotelBooking/HotelBooking/HotelBooking.csproj": {
+    "/home/des1de/RiderProjects/HotelBooking/HotelBooking.DAL/HotelBooking.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/des1de/RiderProjects/HotelBooking/HotelBooking/HotelBooking.csproj",
-        "projectName": "HotelBooking",
-        "projectPath": "/home/des1de/RiderProjects/HotelBooking/HotelBooking/HotelBooking.csproj",
+        "projectUniqueName": "/home/des1de/RiderProjects/HotelBooking/HotelBooking.DAL/HotelBooking.DAL.csproj",
+        "projectName": "HotelBooking.DAL",
+        "projectPath": "/home/des1de/RiderProjects/HotelBooking/HotelBooking.DAL/HotelBooking.DAL.csproj",
         "packagesPath": "/home/des1de/.nuget/packages/",
-        "outputPath": "/home/des1de/RiderProjects/HotelBooking/HotelBooking/obj/",
+        "outputPath": "/home/des1de/RiderProjects/HotelBooking/HotelBooking.DAL/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/des1de/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/home/des1de/RiderProjects/HotelBooking/HotelBooking.Domain/HotelBooking.Domain.csproj": {
+                "projectPath": "/home/des1de/RiderProjects/HotelBooking/HotelBooking.Domain/HotelBooking.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.13, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.113/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/des1de/RiderProjects/HotelBooking/HotelBooking.Domain/HotelBooking.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/des1de/RiderProjects/HotelBooking/HotelBooking.Domain/HotelBooking.Domain.csproj",
+        "projectName": "HotelBooking.Domain",
+        "projectPath": "/home/des1de/RiderProjects/HotelBooking/HotelBooking.Domain/HotelBooking.Domain.csproj",
+        "packagesPath": "/home/des1de/.nuget/packages/",
+        "outputPath": "/home/des1de/RiderProjects/HotelBooking/HotelBooking.Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/des1de/.nuget/NuGet/NuGet.Config"
@@ -37,6 +100,69 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.113/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/des1de/RiderProjects/HotelBooking/HotelBooking/HotelBooking.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/des1de/RiderProjects/HotelBooking/HotelBooking/HotelBooking.csproj",
+        "projectName": "HotelBooking",
+        "projectPath": "/home/des1de/RiderProjects/HotelBooking/HotelBooking/HotelBooking.csproj",
+        "packagesPath": "/home/des1de/.nuget/packages/",
+        "outputPath": "/home/des1de/RiderProjects/HotelBooking/HotelBooking/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/des1de/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/home/des1de/RiderProjects/HotelBooking/HotelBooking.DAL/HotelBooking.DAL.csproj": {
+                "projectPath": "/home/des1de/RiderProjects/HotelBooking/HotelBooking.DAL/HotelBooking.DAL.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.13, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

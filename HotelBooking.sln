@@ -6,6 +6,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{B36A91
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelBooking.Domain", "HotelBooking.Domain\HotelBooking.Domain.csproj", "{6F6D7E5A-3C82-4AF1-B98A-F8114E926331}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAL", "DAL", "{B186D70B-EC39-4D41-B258-A7647C99F0E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelBooking.DAL", "HotelBooking.DAL\HotelBooking.DAL.csproj", "{4F6574BB-6CB9-43C3-9B75-9139725DB975}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,8 +24,13 @@ Global
 		{6F6D7E5A-3C82-4AF1-B98A-F8114E926331}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F6D7E5A-3C82-4AF1-B98A-F8114E926331}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F6D7E5A-3C82-4AF1-B98A-F8114E926331}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F6574BB-6CB9-43C3-9B75-9139725DB975}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F6574BB-6CB9-43C3-9B75-9139725DB975}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F6574BB-6CB9-43C3-9B75-9139725DB975}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F6574BB-6CB9-43C3-9B75-9139725DB975}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{6F6D7E5A-3C82-4AF1-B98A-F8114E926331} = {B36A91CF-66FE-4D7F-8F00-BABFA1C79AF5}
+		{4F6574BB-6CB9-43C3-9B75-9139725DB975} = {B186D70B-EC39-4D41-B258-A7647C99F0E2}
 	EndGlobalSection
 EndGlobal
