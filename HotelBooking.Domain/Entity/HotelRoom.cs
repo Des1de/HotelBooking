@@ -1,0 +1,12 @@
+using HotelBooking.Domain.Enum;
+
+namespace HotelBooking.Domain.Entity;
+
+public class HotelRoom
+{
+    public int Id { get; set; }
+    public int HotelId { get; set; }
+    public decimal Price { get; set; }
+    public RoomType RoomType { get; set; }
+    
+}
