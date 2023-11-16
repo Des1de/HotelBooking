@@ -7,7 +7,7 @@ public class HotelRoom
     public int Id { get; set; }
     public int HotelId { get; set; }
     public int FloorNumber { get; set; }
-    public decimal Price { get; set; }
+    public double Price { get; set; }
     public RoomType RoomType { get; set; }
     
 }
