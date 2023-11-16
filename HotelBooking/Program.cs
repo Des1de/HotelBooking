@@ -1,4 +1,7 @@
+using System.Net;
 using HotelBooking.DAL;
+using HotelBooking.DAL.Interfaces;
+using HotelBooking.DAL.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,7 +12,10 @@ builder.Services.AddControllersWithViews();
 var connection = builder.Configuration.GetConnectionString("DefaultConnection"); 
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connection));
+    options.UseNpgsql(connection));
+builder.Services.AddScoped<IHotelRoomRepository, HotelRoomRepository>(); 
+
+
 
 var app = builder.Build();
 

@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using HotelBooking.DAL;
 using Microsoft.AspNetCore.Mvc;
 using HotelBooking.Models;
 
@@ -7,8 +8,7 @@ namespace HotelBooking.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
-
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
     {
         _logger = logger;
     }

@@ -72,3 +72,10 @@
 /home/des1de/RiderProjects/HotelBooking/HotelBooking/obj/Debug/net7.0/HotelBooking.pdb
 /home/des1de/RiderProjects/HotelBooking/HotelBooking/obj/Debug/net7.0/HotelBooking.genruntimeconfig.cache
 /home/des1de/RiderProjects/HotelBooking/HotelBooking/obj/Debug/net7.0/ref/HotelBooking.dll
+/home/des1de/RiderProjects/HotelBooking/HotelBooking/bin/Debug/net7.0/Humanizer.dll
+/home/des1de/RiderProjects/HotelBooking/HotelBooking/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Design.dll
+/home/des1de/RiderProjects/HotelBooking/HotelBooking/bin/Debug/net7.0/Microsoft.Extensions.DependencyModel.dll
+/home/des1de/RiderProjects/HotelBooking/HotelBooking/bin/Debug/net7.0/Mono.TextTemplating.dll
+/home/des1de/RiderProjects/HotelBooking/HotelBooking/bin/Debug/net7.0/System.CodeDom.dll
+/home/des1de/RiderProjects/HotelBooking/HotelBooking/bin/Debug/net7.0/Npgsql.dll
+/home/des1de/RiderProjects/HotelBooking/HotelBooking/bin/Debug/net7.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
