@@ -8,10 +8,9 @@ public class ApplicationDbContext : DbContext
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
     {
-        this.Database.EnsureCreated(); 
     }
 
     
-    
+    public DbSet<Hotel> Hotels { get; set; }
     public DbSet<HotelRoom> HotelRooms { get; set; }
 }

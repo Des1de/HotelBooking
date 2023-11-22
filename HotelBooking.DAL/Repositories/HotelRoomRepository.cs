@@ -15,7 +15,9 @@ public class HotelRoomRepository : IHotelRoomRepository
     
     public async Task<bool> CreateAsync(HotelRoom entity)
     {
-        throw new NotImplementedException();
+        _dbContext.HotelRooms.AddAsync(entity);
+        _dbContext.SaveChangesAsync();
+        return true; 
     }
 
     public async Task<HotelRoom> GetAsync(int id)
@@ -30,6 +32,9 @@ public class HotelRoomRepository : IHotelRoomRepository
 
     public async Task<bool> DeleteAsync(HotelRoom entity)
     {
-        throw new NotImplementedException();
+        _dbContext.HotelRooms.Remove(entity);
+        _dbContext.SaveChangesAsync();
+        return true; 
     }
+
 }
