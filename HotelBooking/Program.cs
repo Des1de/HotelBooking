@@ -2,6 +2,8 @@ using System.Net;
 using HotelBooking.DAL;
 using HotelBooking.DAL.Interfaces;
 using HotelBooking.DAL.Repositories;
+using HotelBooking.Service.Implementations;
+using HotelBooking.Service.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,7 +14,9 @@ builder.Services.AddControllersWithViews();
 var connection = builder.Configuration.GetConnectionString("DefaultConnection"); 
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseNpgsql(connection));
+    options.UseNpgsql(connection, b => b.MigrationsAssembly("HotelBooking")));
+builder.Services.AddScoped<IHotelRepository, HotelRepository>();
+builder.Services.AddScoped<IHotelService, HotelService>();
 builder.Services.AddScoped<IHotelRoomRepository, HotelRoomRepository>(); 
 
 
