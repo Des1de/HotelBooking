@@ -24,6 +24,11 @@ public class HotelRepository : IHotelRepository
     {
         return await _dbContext.Hotels.FirstOrDefaultAsync(x => x.Id == id); 
     }
+    
+    public async Task<Hotel> GetByNameAsync(string name)
+    {
+        return await _dbContext.Hotels.FirstOrDefaultAsync(x => x.Name == name); 
+    }
 
     public async Task<List<Hotel>> SelectAsync()
     {
