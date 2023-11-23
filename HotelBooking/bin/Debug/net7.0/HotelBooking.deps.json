@@ -9,6 +9,7 @@
       "HotelBooking/1.0.0": {
         "dependencies": {
           "HotelBooking.DAL": "1.0.0",
+          "HotelBooking.Service": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "7.0.13",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.13",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.11"
@@ -588,6 +589,15 @@
         "runtime": {
           "HotelBooking.Domain.dll": {}
         }
+      },
+      "HotelBooking.Service/1.0.0": {
+        "dependencies": {
+          "HotelBooking.DAL": "1.0.0",
+          "HotelBooking.Domain": "1.0.0"
+        },
+        "runtime": {
+          "HotelBooking.Service.dll": {}
+        }
       }
     }
   },
@@ -1030,6 +1040,11 @@
       "sha512": ""
     },
     "HotelBooking.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "HotelBooking.Service/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

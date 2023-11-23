@@ -16,7 +16,7 @@ public class HotelRoomRepository : IHotelRoomRepository
     public async Task<bool> CreateAsync(HotelRoom entity)
     {
         _dbContext.HotelRooms.AddAsync(entity);
-        _dbContext.SaveChangesAsync();
+        await _dbContext.SaveChangesAsync();
         return true; 
     }
 
@@ -33,7 +33,7 @@ public class HotelRoomRepository : IHotelRoomRepository
     public async Task<bool> DeleteAsync(HotelRoom entity)
     {
         _dbContext.HotelRooms.Remove(entity);
-        _dbContext.SaveChangesAsync();
+        await _dbContext.SaveChangesAsync();
         return true; 
     }
 

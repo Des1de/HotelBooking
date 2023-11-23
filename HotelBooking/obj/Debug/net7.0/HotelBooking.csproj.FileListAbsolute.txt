@@ -79,3 +79,5 @@
 /home/des1de/RiderProjects/HotelBooking/HotelBooking/bin/Debug/net7.0/System.CodeDom.dll
 /home/des1de/RiderProjects/HotelBooking/HotelBooking/bin/Debug/net7.0/Npgsql.dll
 /home/des1de/RiderProjects/HotelBooking/HotelBooking/bin/Debug/net7.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+/home/des1de/RiderProjects/HotelBooking/HotelBooking/bin/Debug/net7.0/HotelBooking.Service.dll
+/home/des1de/RiderProjects/HotelBooking/HotelBooking/bin/Debug/net7.0/HotelBooking.Service.pdb

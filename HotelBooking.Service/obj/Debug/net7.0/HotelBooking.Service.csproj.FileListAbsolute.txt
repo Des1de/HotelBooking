@@ -1,0 +1,17 @@
+/home/des1de/RiderProjects/HotelBooking/HotelBooking.Service/bin/Debug/net7.0/HotelBooking.Service.deps.json
+/home/des1de/RiderProjects/HotelBooking/HotelBooking.Service/bin/Debug/net7.0/HotelBooking.Service.dll
+/home/des1de/RiderProjects/HotelBooking/HotelBooking.Service/bin/Debug/net7.0/HotelBooking.Service.pdb
+/home/des1de/RiderProjects/HotelBooking/HotelBooking.Service/bin/Debug/net7.0/HotelBooking.DAL.dll
+/home/des1de/RiderProjects/HotelBooking/HotelBooking.Service/bin/Debug/net7.0/HotelBooking.Domain.dll
+/home/des1de/RiderProjects/HotelBooking/HotelBooking.Service/bin/Debug/net7.0/HotelBooking.DAL.pdb
+/home/des1de/RiderProjects/HotelBooking/HotelBooking.Service/bin/Debug/net7.0/HotelBooking.Domain.pdb
+/home/des1de/RiderProjects/HotelBooking/HotelBooking.Service/obj/Debug/net7.0/HotelBooking.Service.csproj.AssemblyReference.cache
+/home/des1de/RiderProjects/HotelBooking/HotelBooking.Service/obj/Debug/net7.0/HotelBooking.Service.GeneratedMSBuildEditorConfig.editorconfig
+/home/des1de/RiderProjects/HotelBooking/HotelBooking.Service/obj/Debug/net7.0/HotelBooking.Service.AssemblyInfoInputs.cache
+/home/des1de/RiderProjects/HotelBooking/HotelBooking.Service/obj/Debug/net7.0/HotelBooking.Service.AssemblyInfo.cs
+/home/des1de/RiderProjects/HotelBooking/HotelBooking.Service/obj/Debug/net7.0/HotelBooking.Service.csproj.CoreCompileInputs.cache
+/home/des1de/RiderProjects/HotelBooking/HotelBooking.Service/obj/Debug/net7.0/HotelBooking.Service.csproj.CopyComplete
+/home/des1de/RiderProjects/HotelBooking/HotelBooking.Service/obj/Debug/net7.0/HotelBooking.Service.dll
+/home/des1de/RiderProjects/HotelBooking/HotelBooking.Service/obj/Debug/net7.0/refint/HotelBooking.Service.dll
+/home/des1de/RiderProjects/HotelBooking/HotelBooking.Service/obj/Debug/net7.0/HotelBooking.Service.pdb
+/home/des1de/RiderProjects/HotelBooking/HotelBooking.Service/obj/Debug/net7.0/ref/HotelBooking.Service.dll
