@@ -11,4 +11,6 @@ public interface IHotelService
     Task<IBaseResponse<Hotel>> GetHotelByName(string name);
     Task<IBaseResponse<bool>> DeleteHotel(int id);
     Task<IBaseResponse<HotelViewModel>> CreateHotel(HotelViewModel hotelVM);
+    Task<IBaseResponse<Hotel>> EditHotel(HotelViewModel hotelVM); 
+
 }

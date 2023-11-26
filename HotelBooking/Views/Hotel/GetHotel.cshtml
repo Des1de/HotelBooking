@@ -1,6 +1,6 @@
-@model IEnumerable<HotelBooking.Domain.Entity.Hotel>
+@model HotelBooking.Domain.Entity.Hotel
 @{
-    ViewData["Title"] = "Hotels Page";
+    ViewData["Title"] = "Hotel Page";
 }
 
 <head>
@@ -12,20 +12,18 @@
 </head>
 <body>
 <div class="container">
-    <h1>Hotels</h1>
+    <h1>Info about Hotel</h1>
     <div class="row">
-        @foreach (var hotel in Model)
-        {
+        
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">@hotel.Name</h5>
-                        <p class="card-text">@hotel.Description.</p>
-                        <p class="card-text">Rating: @hotel.Rating</p>
+                        <h5 class="card-title">@Model.Name</h5>
+                        <p class="card-text">@Model.Description.</p>
+                        <p class="card-text">Rating: @Model.Rating</p>
                     </div>
                 </div>
             </div>
-        }
     </div>
 </div>
 

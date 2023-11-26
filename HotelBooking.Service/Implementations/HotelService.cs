@@ -153,4 +153,38 @@ public class HotelService : IHotelService
 
         return baseResponse; 
     }
+
+    public async Task<IBaseResponse<Hotel>> EditHotel(HotelViewModel hotelViewModel)
+    {
+        var baseResponse = new BaseResponse<Hotel>();
+        try
+        {
+            var hotel = await _hotelRepository.GetAsync(hotelViewModel.Id);
+            if (hotel == null)
+            {
+                baseResponse.StatusCode = StatusCode.NotFound;
+                baseResponse.Description = "hotel not found";
+                return baseResponse;
+            }
+
+            hotel.Name = hotelViewModel.Name;
+            hotel.Description = hotelViewModel.Description;
+            hotel.Rating = hotelViewModel.Rating;
+
+            baseResponse.Data = hotel;
+            baseResponse.StatusCode = StatusCode.OK;
+
+            await _hotelRepository.UpdateAsync(baseResponse.Data); 
+            
+            return baseResponse; 
+        }
+        catch (Exception e)
+        {
+            return new BaseResponse<Hotel>()
+            {
+                Description = $"[CreateHotel] : {e.Message}",
+                StatusCode = StatusCode.InternalServerError
+            };
+        }
+    }
 }

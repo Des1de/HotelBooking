@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using HotelBooking.DAL.Interfaces;
 using HotelBooking.Domain.Entity;
 using Microsoft.EntityFrameworkCore;
@@ -40,5 +41,13 @@ public class HotelRepository : IHotelRepository
         _dbContext.Hotels.Remove(entity);
         _dbContext.SaveChangesAsync();
         return true; 
+    }
+
+    public async Task<Hotel> UpdateAsync(Hotel entity)
+    {
+        _dbContext.Hotels.Update(entity);
+        await _dbContext.SaveChangesAsync();
+
+        return entity; 
     }
 }

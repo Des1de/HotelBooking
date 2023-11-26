@@ -37,4 +37,8 @@ public class HotelRoomRepository : IHotelRoomRepository
         return true; 
     }
 
+    public Task<HotelRoom> UpdateAsync(HotelRoom entity)
+    {
+        throw new NotImplementedException();
+    }
 }
