@@ -1,3 +1,4 @@
+@model HotelBooking.Domain.ViewModels.Account.LoginViewModel
 @{
     ViewData["Title"] = "Sign In";
 }
@@ -37,14 +38,14 @@
                   <div class="login-container">
                       <div class="login-card">
                           <h3 class="mb-4 text-center">Вход</h3>
-                          <form>
+                          <form autocomplete="on" method="post" asp-controller="Account" asp-action="SignIn">
                               <div class="mb-3">
-                                  <label for="username" class="form-label">Имя пользователя</label>
-                                  <input type="text" class="form-control" id="username" placeholder="Введите имя пользователя">
+                                  <label for="username" class="form-label">Электронная почта</label>
+                                  <input asp-for="Email" type="text" class="form-control"  placeholder="Введите эдектронную почту">
                               </div>
                               <div class="mb-3">
                                   <label for="password" class="form-label">Пароль</label>
-                                  <input type="password" class="form-control" id="password" placeholder="Введите пароль">
+                                  <input asp-for="Password" type="password" class="form-control" asp-for="Password" placeholder="Введите пароль">
                               </div>
                               <button type="submit" class="btn btn-primary">Войти</button>
                               <a href="#" class="btn btn-link text-muted forgot-password-button">Забыли пароль?</a>

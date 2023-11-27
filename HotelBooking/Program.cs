@@ -2,8 +2,10 @@ using System.Net;
 using HotelBooking.DAL;
 using HotelBooking.DAL.Interfaces;
 using HotelBooking.DAL.Repositories;
+using HotelBooking.Domain.Entity;
 using HotelBooking.Service.Implementations;
 using HotelBooking.Service.Interfaces;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,9 +17,20 @@ var connection = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(connection, b => b.MigrationsAssembly("HotelBooking")));
-builder.Services.AddScoped<IHotelRepository, HotelRepository>();
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
+        options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
+    });
+
+builder.Services.AddScoped<IBaseRepository<Hotel>, HotelRepository>();
+builder.Services.AddScoped<IBaseRepository<User>, UserRepository>();
+builder.Services.AddScoped<IBaseRepository<HotelRoom>, HotelRoomRepository>(); 
 builder.Services.AddScoped<IHotelService, HotelService>();
-builder.Services.AddScoped<IHotelRoomRepository, HotelRoomRepository>(); 
+builder.Services.AddScoped<IAccountService, AccountService>(); 
+
 
 
 
