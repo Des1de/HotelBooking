@@ -4,14 +4,15 @@ using HotelBooking.Domain.Enum;
 using HotelBooking.Domain.Response;
 using HotelBooking.Domain.ViewModels;
 using HotelBooking.Service.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace HotelBooking.Service.Implementations;
 
 public class HotelService : IHotelService
 {
-    private readonly IHotelRepository _hotelRepository;
+    private readonly IBaseRepository<Hotel> _hotelRepository;
 
-    public HotelService(IHotelRepository hotelRepository)
+    public HotelService(IBaseRepository<Hotel> hotelRepository)
     {
         _hotelRepository = hotelRepository;
     }
@@ -21,7 +22,7 @@ public class HotelService : IHotelService
         var baseResponse = new BaseResponse<IEnumerable<Hotel>>();
         try
         {
-            var hotels = await _hotelRepository.SelectAsync();
+            var hotels = await _hotelRepository.GetAll().ToListAsync();
             if (hotels.Count == 0)
             {
                 baseResponse.Description = "Not found";
@@ -50,7 +51,7 @@ public class HotelService : IHotelService
         var baseResponse = new BaseResponse<Hotel>();
         try
         {
-            var hotel = await _hotelRepository.GetAsync(id);
+            var hotel = await _hotelRepository.GetAll().FirstOrDefaultAsync(x => x.Id == id);
             if (hotel == null)
             {
                 baseResponse.Description = "hotel not found";
@@ -77,7 +78,7 @@ public class HotelService : IHotelService
         var baseResponse = new BaseResponse<Hotel>();
         try
         {
-            var hotel = await _hotelRepository.GetByNameAsync(name);
+            var hotel = await _hotelRepository.GetAll().FirstOrDefaultAsync(x=>x.Name == name);
             if (hotel == null)
             {
                 baseResponse.Description = "hotel not found";
@@ -105,7 +106,7 @@ public class HotelService : IHotelService
         
         try
         {
-            var hotel = await _hotelRepository.GetAsync(id);
+            var hotel = await _hotelRepository.GetAll().FirstOrDefaultAsync(x=> x.Id == id);
             if (hotel == null)
             {
                 baseResponse.Description = "hotel not found";
@@ -137,7 +138,7 @@ public class HotelService : IHotelService
             {
                 Name = hotelViewModel.Name, 
                 Description = hotelViewModel.Description,
-                Rating = hotelViewModel.Rating
+                //Rating = hotelViewModel.Rating
             };
 
             await _hotelRepository.CreateAsync(hotel); 
@@ -159,7 +160,7 @@ public class HotelService : IHotelService
         var baseResponse = new BaseResponse<Hotel>();
         try
         {
-            var hotel = await _hotelRepository.GetAsync(hotelViewModel.Id);
+            var hotel = await _hotelRepository.GetAll().FirstOrDefaultAsync(x=> x.Id == hotelViewModel.Id);
             if (hotel == null)
             {
                 baseResponse.StatusCode = StatusCode.NotFound;
@@ -169,7 +170,7 @@ public class HotelService : IHotelService
 
             hotel.Name = hotelViewModel.Name;
             hotel.Description = hotelViewModel.Description;
-            hotel.Rating = hotelViewModel.Rating;
+            //hotel.Rating = hotelViewModel.Rating;
 
             baseResponse.Data = hotel;
             baseResponse.StatusCode = StatusCode.OK;

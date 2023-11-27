@@ -1,11 +1,10 @@
-using System.Runtime.CompilerServices;
 using HotelBooking.DAL.Interfaces;
 using HotelBooking.Domain.Entity;
-using Microsoft.EntityFrameworkCore;
+
 
 namespace HotelBooking.DAL.Repositories;
 
-public class HotelRepository : IHotelRepository
+public class HotelRepository : IBaseRepository<Hotel>
 {
     private readonly ApplicationDbContext _dbContext;
 
@@ -16,30 +15,21 @@ public class HotelRepository : IHotelRepository
     
     public async Task<bool> CreateAsync(Hotel entity)
     {
-        _dbContext.Hotels.AddAsync(entity);
-        _dbContext.SaveChangesAsync();
+        await _dbContext.Hotels.AddAsync(entity);
+        await _dbContext.SaveChangesAsync();
         return true; 
     }
 
-    public async Task<Hotel> GetAsync(int id)
+
+    public IQueryable<Hotel> GetAll()
     {
-        return await _dbContext.Hotels.FirstOrDefaultAsync(x => x.Id == id); 
+        return _dbContext.Hotels.AsQueryable();
     }
     
-    public async Task<Hotel> GetByNameAsync(string name)
-    {
-        return await _dbContext.Hotels.FirstOrDefaultAsync(x => x.Name == name); 
-    }
-
-    public async Task<List<Hotel>> SelectAsync()
-    {
-        return await _dbContext.Hotels.ToListAsync(); 
-    }
-
     public async Task<bool> DeleteAsync(Hotel entity)
     {
         _dbContext.Hotels.Remove(entity);
-        _dbContext.SaveChangesAsync();
+        await _dbContext.SaveChangesAsync();
         return true; 
     }
 

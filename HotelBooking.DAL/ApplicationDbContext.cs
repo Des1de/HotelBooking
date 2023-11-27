@@ -9,8 +9,8 @@ public class ApplicationDbContext : DbContext
         : base(options)
     {
     }
-
     
     public DbSet<Hotel> Hotels { get; set; }
     public DbSet<HotelRoom> HotelRooms { get; set; }
+    public DbSet<User> Users { get; set; }
 }

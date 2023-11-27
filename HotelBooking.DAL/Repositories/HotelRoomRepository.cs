@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HotelBooking.DAL.Repositories;
 
-public class HotelRoomRepository : IHotelRoomRepository
+public class HotelRoomRepository : IBaseRepository<HotelRoom>
 {
     private readonly ApplicationDbContext _dbContext;
 
@@ -15,14 +15,14 @@ public class HotelRoomRepository : IHotelRoomRepository
     
     public async Task<bool> CreateAsync(HotelRoom entity)
     {
-        _dbContext.HotelRooms.AddAsync(entity);
+        await _dbContext.HotelRooms.AddAsync(entity);
         await _dbContext.SaveChangesAsync();
         return true; 
     }
 
-    public async Task<HotelRoom> GetAsync(int id)
+    public IQueryable<HotelRoom> GetAll()
     {
-        return await _dbContext.HotelRooms.FirstOrDefaultAsync(x => x.Id == id); 
+        return _dbContext.HotelRooms.AsQueryable(); 
     }
 
     public async Task<List<HotelRoom>> SelectAsync()
@@ -42,3 +42,4 @@ public class HotelRoomRepository : IHotelRoomRepository
         throw new NotImplementedException();
     }
 }
+
