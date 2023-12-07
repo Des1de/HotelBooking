@@ -1,4 +1,3 @@
-using System.Net;
 using HotelBooking.DAL;
 using HotelBooking.DAL.Interfaces;
 using HotelBooking.DAL.Repositories;
@@ -29,7 +28,8 @@ builder.Services.AddScoped<IBaseRepository<Hotel>, HotelRepository>();
 builder.Services.AddScoped<IBaseRepository<User>, UserRepository>();
 builder.Services.AddScoped<IBaseRepository<HotelRoom>, HotelRoomRepository>(); 
 builder.Services.AddScoped<IHotelService, HotelService>();
-builder.Services.AddScoped<IAccountService, AccountService>(); 
+builder.Services.AddScoped<IAccountService, AccountService>();
+builder.Services.AddScoped<IHotelRoomService, HotelRoomService>(); 
 
 
 

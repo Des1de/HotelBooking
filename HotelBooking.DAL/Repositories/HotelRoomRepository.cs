@@ -25,10 +25,6 @@ public class HotelRoomRepository : IBaseRepository<HotelRoom>
         return _dbContext.HotelRooms.AsQueryable(); 
     }
 
-    public async Task<List<HotelRoom>> SelectAsync()
-    {
-        return await _dbContext.HotelRooms.ToListAsync(); 
-    }
 
     public async Task<bool> DeleteAsync(HotelRoom entity)
     {
