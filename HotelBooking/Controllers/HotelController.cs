@@ -19,7 +19,7 @@ public class HotelController : Controller
     {
        
         var response = await _hotelService.GetHotels();
-        if (response.StatusCode == Domain.Enum.StatusCode.OK)
+        if (response.StatusCode == Domain.Enum.StatusCode.OK || response.StatusCode == Domain.Enum.StatusCode.NotFound)
         {
             return View(response.Data); 
         }
@@ -38,11 +38,10 @@ public class HotelController : Controller
         
         return RedirectToAction("Error","Home");
     }
-
-    [Authorize(Roles = "admin")]
+    
     public async Task<IActionResult> DeleteHotel(int id)
     {
-        var response = await _hotelService.GetHotel(id);
+        var response = await _hotelService.DeleteHotel(id);
         if (response.StatusCode == Domain.Enum.StatusCode.OK)
         {
             return RedirectToAction("GetHotels"); 
@@ -51,39 +50,33 @@ public class HotelController : Controller
     }
 
     [HttpGet]
-    [Authorize(Roles = "admin")]
-    public async Task<IActionResult> SaveHotel(int id)
+    public async Task<IActionResult> CreateHotel()
     {
-        if (id == 0)
-        {
-            return View(); 
-        }
-
-        var response = await _hotelService.GetHotel(id);
-        if (response.StatusCode == Domain.Enum.StatusCode.OK)
-        {
-            return View(response.Data); 
-        }
         
-        return RedirectToAction("Error","Home");
+        var hotel = new CreateHotelViewModel()
+        {
+                
+        };
+        return View(hotel); 
     }
 
     [HttpPost]
-    [Authorize(Roles = "admin")]
-    public async Task<IActionResult> SaveHotel(HotelViewModel model)
+    public async Task<IActionResult> CreateHotel(CreateHotelViewModel model)
     {
         if (ModelState.IsValid)
         {
-            if (model.Id == 0)
-            {
-                await _hotelService.CreateHotel(model); 
-            }
-            else
-            {
-                await _hotelService.EditHotel(model);
-            }
+            await _hotelService.CreateHotel(model); 
+            return RedirectToAction("GetHotels"); 
         }
 
-        return RedirectToAction("GetHotels"); 
+        return View(model);
+
+    }
+    
+    [HttpPost]
+    public JsonResult GetTypes()
+    {
+        var types = _hotelService.GetTypes();
+        return Json(types.Data);
     }
 }

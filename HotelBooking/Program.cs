@@ -24,12 +24,24 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
     });
 
-builder.Services.AddScoped<IBaseRepository<Hotel>, HotelRepository>();
+
 builder.Services.AddScoped<IBaseRepository<User>, UserRepository>();
-builder.Services.AddScoped<IBaseRepository<HotelRoom>, HotelRoomRepository>(); 
-builder.Services.AddScoped<IHotelService, HotelService>();
+builder.Services.AddScoped<IBaseRepository<UserInfo>, UserInfoRepository>();
+builder.Services.AddScoped<IBaseRepository<Hotel>, HotelRepository>();
+builder.Services.AddScoped<IBaseRepository<HotelAddress>, HotelAddressRepository>();
+builder.Services.AddScoped<IBaseRepository<HotelPhoto>, HotelPhotoRepository>();
+builder.Services.AddScoped<IBaseRepository<HotelReview>, HotelReviewRepository>();
+builder.Services.AddScoped<IBaseRepository<HotelRoom>, HotelRoomRepository>();
+builder.Services.AddScoped<IBaseRepository<HotelRoomPhoto>, HotelRoomPhotoRepository>();
+builder.Services.AddScoped<IBaseRepository<HotelRoomReview>, HotelRoomReviewRepository>();
+builder.Services.AddScoped<IBaseRepository<Reservation>, ReservationRepository>();
+
 builder.Services.AddScoped<IAccountService, AccountService>();
-builder.Services.AddScoped<IHotelRoomService, HotelRoomService>(); 
+builder.Services.AddScoped<IHotelService, HotelService>();
+builder.Services.AddScoped<IHotelRoomService, HotelRoomService>();  
+builder.Services.AddScoped<IReservationService, ReservationService>();
+builder.Services.AddScoped<IHotelReviewService, HotelReviewService>();
+builder.Services.AddScoped<IHotelRoomReviewService, HotelRoomReviewService>();
 
 
 

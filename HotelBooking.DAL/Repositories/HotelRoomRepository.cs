@@ -33,9 +33,11 @@ public class HotelRoomRepository : IBaseRepository<HotelRoom>
         return true; 
     }
 
-    public Task<HotelRoom> UpdateAsync(HotelRoom entity)
+    public async Task<HotelRoom> UpdateAsync(HotelRoom entity)
     {
-        throw new NotImplementedException();
+        _dbContext.HotelRooms.Update(entity);
+        await _dbContext.SaveChangesAsync();
+        return entity; 
     }
 }
 

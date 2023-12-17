@@ -14,13 +14,15 @@ namespace HotelBooking.Service.Implementations;
  public class AccountService : IAccountService
     {
         private readonly IBaseRepository<User> _userRepository;
+        private readonly IBaseRepository<UserInfo> _userInfoRepository;
         private readonly ILogger<AccountService> _logger;
         
         public AccountService(IBaseRepository<User> userRepository,
-            ILogger<AccountService> logger)
+            ILogger<AccountService> logger, IBaseRepository<UserInfo> userInfoRepository)
         {
             _userRepository = userRepository;
             _logger = logger;
+            _userInfoRepository = userInfoRepository;
         }
 
         public async Task<BaseResponse<ClaimsIdentity>> Register(RegisterViewModel model)
@@ -35,28 +37,18 @@ namespace HotelBooking.Service.Implementations;
                         Description = "Пользователь с таким логином уже есть",
                     };
                 }
-
+                
+                
                 user = new User()
                 {
                     Email = model.Email,
                     Role = Role.User,
-                    Password = HashPasswordHelper.HashPassowrd(model.Password),
+                    Password = HashPasswordHelper.HashPassowrd(model.Password)
                 };
 
                 await _userRepository.CreateAsync(user);
-
-                /*var profile = new Profile()
-                {
-                    UserId = user.Id,
-                };
-
-                var basket = new Basket()
-                {
-                    UserId = user.Id
-                }; */
                 
-                /*await _proFileRepository.Create(profile);
-                await _basketRepository.Create(basket);*/
+                
                 var result = Authenticate(user);
 
                 return new BaseResponse<ClaimsIdentity>()

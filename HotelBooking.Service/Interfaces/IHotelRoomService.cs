@@ -6,10 +6,11 @@ namespace HotelBooking.Service.Interfaces;
 
 public interface IHotelRoomService
 {
-    Task<IBaseResponse<IEnumerable<HotelRoom>>> GetHotels();
-    Task<IBaseResponse<HotelRoom>> GetHotel(int id);
-    Task<IBaseResponse<HotelRoom>> GetHotelByName(string name);
-    Task<IBaseResponse<bool>> DeleteHotel(int id);
-    Task<IBaseResponse<HotelRoomViewModel>> CreateHotel(HotelRoomViewModel hotelRoomVM);
-    Task<IBaseResponse<HotelRoom>> EditHotel(HotelRoomViewModel hotelRoomVM); 
+    Task<IBaseResponse<IEnumerable<GetHotelRoomsViewModel>>> GetHotelRooms(int hotelId);
+    Task<IBaseResponse<HotelRoom>> GetHotelRoom(int id);
+    Task<IBaseResponse<HotelRoom>> GetHotelRoomByName(string name);
+    Task<IBaseResponse<bool>> DeleteHotelRoom(int id);
+    Task<IBaseResponse<CreateHotelRoomViewModel>> CreateHotelRoom(CreateHotelRoomViewModel getHotelRoomsVm, int hotelId);
+    Task<IBaseResponse<HotelRoom>> EditHotelRoom(GetHotelRoomsViewModel getHotelRoomsVm);
+    BaseResponse<Dictionary<int, string>> GetTypes();
 }
