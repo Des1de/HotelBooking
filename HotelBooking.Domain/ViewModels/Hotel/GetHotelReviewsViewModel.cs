@@ -1,9 +1,8 @@
-namespace HotelBooking.Domain.Entity;
+namespace HotelBooking.Domain.ViewModels;
 
-public class HotelReview
+public class GetHotelReviewsViewModel
 {
     public int Id { get; set; }
     public string Email { get; set; }
-    public int HotelId { get; set; }
     public string Review { get; set; }
 }

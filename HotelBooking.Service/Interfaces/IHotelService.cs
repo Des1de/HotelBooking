@@ -13,4 +13,7 @@ public interface IHotelService
     Task<IBaseResponse<CreateHotelViewModel>> CreateHotel(CreateHotelViewModel createHotelVm);
     Task<IBaseResponse<Hotel>> EditHotel(CreateHotelViewModel createHotelVm);
     BaseResponse<Dictionary<int, string>> GetTypes();
+    Task<IBaseResponse<CreateHotelReviewViewModel>> CreateHotelReview(CreateHotelReviewViewModel createHotelVm);
+    Task<IBaseResponse<IEnumerable<GetHotelReviewsViewModel>>> GetHotelReviews(int id);
+    Task<IBaseResponse<bool>> DeleteHotelReview(int id);
 }

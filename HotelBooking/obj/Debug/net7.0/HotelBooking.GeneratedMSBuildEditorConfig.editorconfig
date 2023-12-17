@@ -36,12 +36,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG90ZWwvQ3JlYXRlSG90ZWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[/home/des1de/RiderProjects/HotelBooking/HotelBooking/Views/Hotel/CreateHotelReview.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG90ZWwvQ3JlYXRlSG90ZWxSZXZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/home/des1de/RiderProjects/HotelBooking/HotelBooking/Views/Hotel/EditHotel.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG90ZWwvRWRpdEhvdGVsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/home/des1de/RiderProjects/HotelBooking/HotelBooking/Views/Hotel/GetHotel.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG90ZWwvR2V0SG90ZWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/des1de/RiderProjects/HotelBooking/HotelBooking/Views/Hotel/GetHotelReviews.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG90ZWwvR2V0SG90ZWxSZXZpZXdzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/home/des1de/RiderProjects/HotelBooking/HotelBooking/Views/Hotel/GetHotels.cshtml]
@@ -52,12 +60,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG90ZWxSb29tL0NyZWF0ZUhvdGVsUm9vbS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/home/des1de/RiderProjects/HotelBooking/HotelBooking/Views/HotelRoom/CreateHotelRoomReview.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG90ZWxSb29tL0NyZWF0ZUhvdGVsUm9vbVJldmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/home/des1de/RiderProjects/HotelBooking/HotelBooking/Views/HotelRoom/EditHotelRoom.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG90ZWxSb29tL0VkaXRIb3RlbFJvb20uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/home/des1de/RiderProjects/HotelBooking/HotelBooking/Views/HotelRoom/GetHotelRoom.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG90ZWxSb29tL0dldEhvdGVsUm9vbS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/des1de/RiderProjects/HotelBooking/HotelBooking/Views/HotelRoom/GetHotelRoomReviews.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG90ZWxSb29tL0dldEhvdGVsUm9vbVJldmlld3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/home/des1de/RiderProjects/HotelBooking/HotelBooking/Views/HotelRoom/GetHotelRooms.cshtml]

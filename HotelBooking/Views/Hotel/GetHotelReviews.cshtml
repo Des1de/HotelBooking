@@ -1,0 +1,36 @@
+@model IEnumerable<HotelBooking.Domain.ViewModels.GetHotelReviewsViewModel>
+@{
+    ViewData["Title"] = "Hotel reviews Page";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <title>Hotel Reviews</title>
+</head>
+<body>
+<div class="container">
+    <h1>Hotel Reviews</h1>
+    
+    @if (Model == null)
+    {
+        <h5>There are no reviews</h5>
+    }
+    else{
+        @foreach(var review in Model){
+            <div class="card">
+                <div class="card-body">
+                 <h5 class="card-title">@review.Email</h5>
+                   <p class="card-text">@review.Review</p>
+                    @if(User.IsInRole("Admin")){
+                        <button class="btn btn-danger"><a asp-area="" asp-controller="Hotel" asp-action="DeleteHotelReview" asp-route-id="@review.Id">Delete</a></button>
+                    }
+              </div>
+         </div>
+       }
+    }
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>

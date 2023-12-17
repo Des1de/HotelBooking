@@ -1,3 +1,4 @@
+using HotelBooking.Domain.ViewModels;
 using HotelBooking.Domain.ViewModels.HotelRoom;
 using HotelBooking.Service.Implementations;
 using HotelBooking.Service.Interfaces;
@@ -8,10 +9,12 @@ namespace HotelBooking.Controllers;
 public class HotelRoomController : Controller
 {
     private readonly IHotelRoomService _hotelRoomService;
+    private readonly IHttpContextAccessor _httpContextAccessor;
 
-    public HotelRoomController(IHotelRoomService hotelRoomService)
+    public HotelRoomController(IHotelRoomService hotelRoomService, IHttpContextAccessor httpContextAccessor)
     {
         _hotelRoomService = hotelRoomService;
+        _httpContextAccessor = httpContextAccessor;
     }
 
     [HttpGet]
@@ -104,5 +107,49 @@ public class HotelRoomController : Controller
             return RedirectToAction("GetHotels","Hotel"); 
         }
         return RedirectToAction("Error","Home");
+    }
+    
+    [HttpGet]
+    public async Task<IActionResult> GetHotelRoomReviews(int hotelRoomId)
+    {
+        var response = await _hotelRoomService.GetHotelRoomReviews(hotelRoomId);
+        if (response.StatusCode == Domain.Enum.StatusCode.OK || response.StatusCode == Domain.Enum.StatusCode.NotFound)
+        {
+            return View(response.Data); 
+        }
+
+        return RedirectToAction("Error","Home");
+    }
+
+    public async Task<IActionResult> DeleteHotelRoomReview(int id)
+    {
+        var response = await _hotelRoomService.DeleteHotelRoomReview(id);
+        if (response.StatusCode == Domain.Enum.StatusCode.OK)
+        {
+            return RedirectToAction("GetHotelRoomReviews"); 
+        }
+        return RedirectToAction("Error","Home");
+    }
+    
+    [HttpGet]
+    public async Task<IActionResult> CreateHotelRoomReview(int id)
+    {
+        
+        var hotel = new CreateHotelRoomReviewViewModel()
+        {
+            HotelRoomId = id, 
+            Email = _httpContextAccessor.HttpContext.User.Identity.Name
+        };
+        return View(hotel); 
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> CreateHotelRoomReview(CreateHotelRoomReviewViewModel model)
+    {
+       
+        await _hotelRoomService.CreateHotelRoomReview(model); 
+        return RedirectToAction("GetHotelRooms"); 
+        
+
     }
 }

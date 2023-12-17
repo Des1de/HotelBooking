@@ -30,9 +30,16 @@
                     <p class="card-text">Floor Number: @Model.FlourNumber</p>
                     <p class="card-text">Description: @Model.Description.</p>
                     <div class="mt-3">
-                        <button class="btn btn-danger me-2"><a asp-area="" asp-controller="HotelRoom" asp-action="DeleteHotelRoom" asp-route-id="@Model.Id">Delete</a></button>
-                        <button class="btn btn-success"><a asp-area="" asp-controller="HotelRoom" asp-action="EditHotelRoom" asp-route-id="@Model.Id">Edit</a></button>
-                        <button class="btn btn-success"><a asp-area="" asp-controller="Reservation" asp-action="CreateReservation" asp-route-id="@Model.Id">Reserve</a></button>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <button class="btn btn-danger me-2"><a asp-area="" asp-controller="HotelRoom" asp-action="DeleteHotelRoom" asp-route-id="@Model.Id">Delete</a></button>
+                            <button class="btn btn-success"><a asp-area="" asp-controller="HotelRoom" asp-action="EditHotelRoom" asp-route-id="@Model.Id">Edit</a></button>
+                        }
+                        <button class="btn btn-success"><a asp-area="" asp-controller="HotelRoom" asp-action="GetHotelRoomReviews" asp-route-hotelRoomId="@Model.Id">See reviews</a></button>
+                        @if(User.Identity.IsAuthenticated){
+                            <button class="btn btn-success"><a asp-area="" asp-controller="Reservation" asp-action="CreateReservation" asp-route-id="@Model.Id">Reserve</a></button>
+                            <button class="btn btn-success"><a asp-area="" asp-controller="HotelRoom" asp-action="CreateHotelRoomReview" asp-route-id="@Model.Id">Create review</a></button>
+                        }
                     </div>
                 </div>
             </div>

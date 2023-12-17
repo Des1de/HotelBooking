@@ -14,11 +14,13 @@ public class HotelRoomService : IHotelRoomService
 {
     private readonly IBaseRepository<HotelRoom> _hotelRoomRepository;
     private readonly IBaseRepository<Hotel> _hotelRepository;
+    private readonly IBaseRepository<HotelRoomReview> _hotelRoomReviewRepository; 
 
-    public HotelRoomService(IBaseRepository<HotelRoom> hotelRoomRepository, IBaseRepository<Hotel> hotelRepository)
+    public HotelRoomService(IBaseRepository<HotelRoom> hotelRoomRepository, IBaseRepository<Hotel> hotelRepository, IBaseRepository<HotelRoomReview> hotelRoomReviewRepository)
     {
         _hotelRoomRepository = hotelRoomRepository;
         _hotelRepository = hotelRepository;
+        _hotelRoomReviewRepository = hotelRoomReviewRepository;
     }
 
     public async Task<IBaseResponse<IEnumerable<GetHotelRoomsViewModel>>> GetHotelRooms(int hotelId)
@@ -222,6 +224,103 @@ public class HotelRoomService : IHotelRoomService
             return new BaseResponse<Dictionary<int, string>>()
             {
                 Description = ex.Message,
+                StatusCode = StatusCode.InternalServerError
+            };
+        }
+    }
+    
+    public async Task<IBaseResponse<CreateHotelRoomReviewViewModel>> CreateHotelRoomReview(CreateHotelRoomReviewViewModel createHotelRoomReviewVm)
+    {
+        var baseResponse = new BaseResponse<CreateHotelRoomReviewViewModel>();
+
+        try
+        {
+            
+            var hotelRoomReview = new HotelRoomReview()
+            {
+                HotelRoomId = createHotelRoomReviewVm.HotelRoomId, Email = createHotelRoomReviewVm.Email, Review = createHotelRoomReviewVm.Review
+            };
+
+            await _hotelRoomReviewRepository.CreateAsync(hotelRoomReview);
+
+        }
+        catch (Exception e)
+        {
+            return new BaseResponse<CreateHotelRoomReviewViewModel>()
+            {
+                Description = $"[CreateHotel] : {e.Message}",
+                StatusCode = StatusCode.InternalServerError
+            };
+        }
+
+        return baseResponse; 
+    }
+
+    public async Task<IBaseResponse<IEnumerable<GetHotelRoomReviewsViewModel>>> GetHotelRoomReviews(int id)
+    {
+        var baseResponse = new BaseResponse<IEnumerable<GetHotelRoomReviewsViewModel>>();
+        try
+        {
+            var hotelRoomReviews = await _hotelRoomReviewRepository.GetAll().Where(x=>x.HotelRoomId == id).ToListAsync();
+            if (hotelRoomReviews.Count == 0)
+            {
+                baseResponse.Description = "Not found";
+                baseResponse.StatusCode = StatusCode.NotFound;
+                return baseResponse; 
+            }
+
+            var hotelReviewRoomModels = new List<GetHotelRoomReviewsViewModel>(); 
+
+            for(int i = 0; i<hotelRoomReviews.Count; i++)
+            {
+                hotelReviewRoomModels.Add(new GetHotelRoomReviewsViewModel()
+                {
+                    Id = hotelRoomReviews[i].Id,
+                    Review = hotelRoomReviews[i].Review,
+                    Email = hotelRoomReviews[i].Email, 
+                });
+            }
+
+            baseResponse.Data = hotelReviewRoomModels;
+            baseResponse.StatusCode = StatusCode.OK; 
+
+
+            return baseResponse;
+
+        }
+        catch (Exception e)
+        {
+            return new BaseResponse<IEnumerable<GetHotelRoomReviewsViewModel>>()
+            {
+                Description = $"[GetHotels] : {e.Message}"
+            };
+        }
+    }
+
+    public async Task<IBaseResponse<bool>> DeleteHotelRoomReview(int id)
+    {
+        var baseResponse = new BaseResponse<bool>(); 
+        
+        try
+        {
+            var hotelRoomReview = await _hotelRoomReviewRepository.GetAll().FirstOrDefaultAsync(x=> x.Id == id);
+
+            if (hotelRoomReview == null)
+            {
+                baseResponse.Description = "hotel not found";
+                baseResponse.StatusCode = StatusCode.NotFound;
+                return baseResponse; 
+            }
+
+            baseResponse.Data = await _hotelRoomReviewRepository.DeleteAsync(hotelRoomReview);
+            baseResponse.StatusCode = StatusCode.OK;
+            return baseResponse;
+        }
+        catch (Exception e)
+        {
+            return new BaseResponse<bool>()
+            {
+                Description = $"[DeleteHotel] : {e.Message}",
                 StatusCode = StatusCode.InternalServerError
             };
         }
