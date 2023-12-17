@@ -68,6 +68,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmVzZXJ2YXRpb24vQ3JlYXRlUmVzZXJ2YXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[/home/des1de/RiderProjects/HotelBooking/HotelBooking/Views/Reservation/GetPendingReservations.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmVzZXJ2YXRpb24vR2V0UGVuZGluZ1Jlc2VydmF0aW9ucy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/home/des1de/RiderProjects/HotelBooking/HotelBooking/Views/Reservation/GetUserReservations.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmVzZXJ2YXRpb24vR2V0VXNlclJlc2VydmF0aW9ucy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -78,6 +82,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/home/des1de/RiderProjects/HotelBooking/HotelBooking/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/des1de/RiderProjects/HotelBooking/HotelBooking/Views/User/GetUsers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9HZXRVc2Vycy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/home/des1de/RiderProjects/HotelBooking/HotelBooking/Views/_ViewImports.cshtml]

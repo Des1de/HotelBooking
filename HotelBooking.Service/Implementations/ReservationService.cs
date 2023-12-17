@@ -74,6 +74,50 @@ public class ReservationService : IReservationService
         }
     }
 
+    public async Task<IBaseResponse<IEnumerable<GetReservationsViewModel>>> GetPendingReservations()
+    {
+        var baseResponse = new BaseResponse<IEnumerable<GetReservationsViewModel>>(); 
+        try
+        {
+            var reservations = await _reservationRepository.GetAll().Where(x => x.ReservationStatus == ReservationStatus.Pending).ToListAsync();
+            if (reservations.Count == 0)
+            {
+                baseResponse.Description = "Not found";
+                baseResponse.StatusCode = StatusCode.NotFound;
+                return baseResponse; 
+            }
+
+            var models = new List<GetReservationsViewModel>();
+
+            foreach (var reservation in reservations)
+            {
+                models.Add(new GetReservationsViewModel()
+                {
+                    Id = reservation.Id,
+                    UserId = reservation.UserId,
+                    HotelRoomId = reservation.HotelRoomId,
+                    CheckInDate = reservation.CheckInDate.ToString(),
+                    CheckOutDate = reservation.CheckOutDate.ToString(),
+                    ReservationStatus = reservation.ReservationStatus.ToString()
+                });
+            }
+
+            baseResponse.Data = models;
+            baseResponse.StatusCode = StatusCode.OK; 
+
+
+            return baseResponse;
+
+        }
+        catch (Exception e)
+        {
+            return new BaseResponse<IEnumerable<GetReservationsViewModel>>()
+            {
+                Description = $"[GetHotels] : {e.Message}"
+            };
+        }
+    }
+
     public async Task<IBaseResponse<CreateReservationViewModel>> CreateReservation(CreateReservationViewModel reservationViewModel)
     {
         var baseResponse = new BaseResponse<CreateReservationViewModel>();
@@ -124,6 +168,66 @@ public class ReservationService : IReservationService
             }
 
             baseResponse.Data = await _reservationRepository.DeleteAsync(reservation);
+            baseResponse.StatusCode = StatusCode.OK;
+            return baseResponse;
+        }
+        catch (Exception e)
+        {
+            return new BaseResponse<bool>()
+            {
+                Description = $"[DeleteHotel] : {e.Message}",
+                StatusCode = StatusCode.InternalServerError
+            };
+        }
+    }
+
+    public async Task<IBaseResponse<bool>> AcceptReservation(int id)
+    {
+        var baseResponse = new BaseResponse<bool>(); 
+        
+        try
+        {
+            var reservation = await _reservationRepository.GetAll().FirstOrDefaultAsync(x=> x.Id == id);
+          
+            if (reservation == null)
+            {
+                baseResponse.Description = "hotel not found";
+                baseResponse.StatusCode = StatusCode.NotFound;
+                return baseResponse; 
+            }
+
+            reservation.ReservationStatus = ReservationStatus.Accepted;
+            await _reservationRepository.UpdateAsync(reservation);
+            baseResponse.StatusCode = StatusCode.OK;
+            return baseResponse;
+        }
+        catch (Exception e)
+        {
+            return new BaseResponse<bool>()
+            {
+                Description = $"[DeleteHotel] : {e.Message}",
+                StatusCode = StatusCode.InternalServerError
+            };
+        }
+    }
+
+    public async Task<IBaseResponse<bool>> RejectReservation(int id)
+    {
+        var baseResponse = new BaseResponse<bool>(); 
+        
+        try
+        {
+            var reservation = await _reservationRepository.GetAll().FirstOrDefaultAsync(x=> x.Id == id);
+          
+            if (reservation == null)
+            {
+                baseResponse.Description = "hotel not found";
+                baseResponse.StatusCode = StatusCode.NotFound;
+                return baseResponse; 
+            }
+
+            reservation.ReservationStatus = ReservationStatus.Rejected;
+            await _reservationRepository.UpdateAsync(reservation);
             baseResponse.StatusCode = StatusCode.OK;
             return baseResponse;
         }

@@ -46,6 +46,11 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Reservation" asp-action="GetUserReservations">My Reservations</a>
                         </li>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Reservation" asp-action="GetPendingReservations">Pending Reservations</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="GetUsers">Users list</a>
+                        }
                         <form method="post" asp-controller="Account" asp-action="Logout">
                            <input class="nav-link text-dark" type="submit" value="Logout"/>
                         </form>

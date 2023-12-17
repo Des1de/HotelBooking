@@ -42,6 +42,7 @@ builder.Services.AddScoped<IHotelRoomService, HotelRoomService>();
 builder.Services.AddScoped<IReservationService, ReservationService>();
 builder.Services.AddScoped<IHotelReviewService, HotelReviewService>();
 builder.Services.AddScoped<IHotelRoomReviewService, HotelRoomReviewService>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 builder.Services.AddHttpContextAccessor();
 
