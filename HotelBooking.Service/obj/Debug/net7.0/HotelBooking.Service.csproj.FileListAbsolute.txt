@@ -15,3 +15,9 @@
 /home/des1de/RiderProjects/HotelBooking/HotelBooking.Service/obj/Debug/net7.0/refint/HotelBooking.Service.dll
 /home/des1de/RiderProjects/HotelBooking/HotelBooking.Service/obj/Debug/net7.0/HotelBooking.Service.pdb
 /home/des1de/RiderProjects/HotelBooking/HotelBooking.Service/obj/Debug/net7.0/ref/HotelBooking.Service.dll
+/home/des1de/RiderProjects/HotelBooking/HotelBooking.Service/bin/Debug/net7.0/Microsoft.AspNetCore.Http.Abstractions.dll
+/home/des1de/RiderProjects/HotelBooking/HotelBooking.Service/bin/Debug/net7.0/System.IO.Pipelines.dll
+/home/des1de/RiderProjects/HotelBooking/HotelBooking.Service/bin/Debug/net7.0/Microsoft.Extensions.Features.dll
+/home/des1de/RiderProjects/HotelBooking/HotelBooking.Service/bin/Debug/net7.0/Microsoft.AspNetCore.Http.Features.dll
+/home/des1de/RiderProjects/HotelBooking/HotelBooking.Service/bin/Debug/net7.0/Microsoft.Net.Http.Headers.dll
+/home/des1de/RiderProjects/HotelBooking/HotelBooking.Service/bin/Debug/net7.0/Microsoft.AspNetCore.Connections.Abstractions.dll

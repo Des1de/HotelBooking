@@ -6,6 +6,7 @@ namespace HotelBooking.Service.Interfaces;
 
 public interface IReservationService
 {
-    Task<IBaseResponse<IEnumerable<Reservation>>> GetReservationsBy(int userId); 
-    Task<IBaseResponse<ReservationViewModel>> CreateReservation(ReservationViewModel hotelVM);
+    Task<IBaseResponse<IEnumerable<GetReservationsViewModel>>> GetReservationsByUserId(); 
+    Task<IBaseResponse<CreateReservationViewModel>> CreateReservation(CreateReservationViewModel hotelVM);
+    Task<IBaseResponse<bool>> DeleteReservation(int id);
 }

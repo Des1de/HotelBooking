@@ -1,0 +1,68 @@
+@model HotelBooking.Domain.ViewModels.HotelRoom.CreateHotelRoomViewModel
+@{
+    ViewData["Title"] = "HotelRoom Create Page";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Management</title>
+    <!-- Подключение стилей Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+
+
+    <!-- Форма для создания отеля -->
+    <form method="post" asp-controller="HotelRoom" asp-action="EditHotelRoom">
+        <div class="mb-3">
+            <label for="name" class="form-label">Hotel Id</label>
+            <input asp-for="HotelId" type="text" class="form-control" id="name" placeholder="Enter hotel Id">
+        </div>
+        <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea asp-for="Description" class="form-control" id="description" rows="3" placeholder="Enter room description"></textarea>
+                </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Floor number</label>
+            <input asp-for="FloorNumber" type="text" class="form-control" id="name" placeholder="Enter floor number">
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Price</label>
+            <input asp-for="Price" class="form-control" id="description" placeholder="Enter price for day"></input>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="@Model.RoomType" class="col-form-label"></label>
+            <select asp-for="@Model.RoomType" class="form-control" id="hotelRoomTypeId"></select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save Hotel Room</button>
+    </form>
+</div>
+
+<!-- Подключение скриптов Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+   $('#hotelRoomTypeId').select2({
+      placeholder: "Выберите тип",
+      minimumInputLength: 0,
+      allowClear: true,
+      ajax: {
+           type: "POST",
+           url: "@Url.Action("GetTypes", "HotelRoom")",
+           dataType: "json",
+           processResults: function (result) {
+               return {
+                   results: $.map(result, function (val, index) {
+                       return {
+                           id: index, 
+                           text: val
+                       };
+                   }),
+               };
+           }
+       }
+   });
+</script>
+</body>

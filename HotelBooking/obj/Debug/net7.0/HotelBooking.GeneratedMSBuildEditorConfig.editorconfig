@@ -36,6 +36,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG90ZWwvQ3JlYXRlSG90ZWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[/home/des1de/RiderProjects/HotelBooking/HotelBooking/Views/Hotel/EditHotel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG90ZWwvRWRpdEhvdGVsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/home/des1de/RiderProjects/HotelBooking/HotelBooking/Views/Hotel/GetHotel.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG90ZWwvR2V0SG90ZWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -48,8 +52,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG90ZWxSb29tL0NyZWF0ZUhvdGVsUm9vbS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/home/des1de/RiderProjects/HotelBooking/HotelBooking/Views/HotelRoom/EditHotelRoom.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG90ZWxSb29tL0VkaXRIb3RlbFJvb20uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/des1de/RiderProjects/HotelBooking/HotelBooking/Views/HotelRoom/GetHotelRoom.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG90ZWxSb29tL0dldEhvdGVsUm9vbS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/home/des1de/RiderProjects/HotelBooking/HotelBooking/Views/HotelRoom/GetHotelRooms.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG90ZWxSb29tL0dldEhvdGVsUm9vbXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/des1de/RiderProjects/HotelBooking/HotelBooking/Views/Reservation/CreateReservation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmVzZXJ2YXRpb24vQ3JlYXRlUmVzZXJ2YXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/des1de/RiderProjects/HotelBooking/HotelBooking/Views/Reservation/GetUserReservations.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmVzZXJ2YXRpb24vR2V0VXNlclJlc2VydmF0aW9ucy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/home/des1de/RiderProjects/HotelBooking/HotelBooking/Views/Shared/Error.cshtml]

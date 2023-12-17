@@ -66,9 +66,41 @@ public class HotelRoomService : IHotelRoomService
         }
     }
 
-    public Task<IBaseResponse<HotelRoom>> GetHotelRoom(int id)
+    public async Task<IBaseResponse<GetHotelRoomViewModel>> GetHotelRoom(int id)
     {
-        throw new NotImplementedException();
+        var baseResponse = new BaseResponse<GetHotelRoomViewModel>();
+        try
+        {
+            var hotelRoom = await _hotelRoomRepository.GetAll().FirstOrDefaultAsync(x => x.Id == id);
+            var hotel = await _hotelRepository.GetAll().FirstOrDefaultAsync(x => x.Id == hotelRoom.HotelId);
+            if (hotelRoom == null)
+            {
+                baseResponse.Description = "hotel room not found";
+                baseResponse.StatusCode = StatusCode.NotFound;
+                return baseResponse; 
+            }
+
+            baseResponse.Data = new GetHotelRoomViewModel()
+            {
+                Id = hotelRoom.Id,
+                HotelName = hotel.Name,
+                HotelId = hotel.Id,
+                Description = hotelRoom.Description,
+                RoomType = hotelRoom.RoomType.ToString(), 
+                FlourNumber = hotelRoom.FloorNumber,
+                Price = hotelRoom.Price
+            };
+            baseResponse.StatusCode = StatusCode.OK;
+            return baseResponse; 
+        }
+        catch (Exception e)
+        {
+            return new BaseResponse<GetHotelRoomViewModel>()
+            {
+                Description = $"[GetHotel] : {e.Message}",
+                StatusCode = StatusCode.InternalServerError
+            };
+        }
     }
 
     public Task<IBaseResponse<HotelRoom>> GetHotelRoomByName(string name)
@@ -76,9 +108,33 @@ public class HotelRoomService : IHotelRoomService
         throw new NotImplementedException();
     }
 
-    public Task<IBaseResponse<bool>> DeleteHotelRoom(int id)
+    public async Task<IBaseResponse<bool>> DeleteHotelRoom(int id)
     {
-        throw new NotImplementedException();
+        var baseResponse = new BaseResponse<bool>(); 
+        
+        try
+        {
+            var hotelRoom = await _hotelRoomRepository.GetAll().FirstOrDefaultAsync(x=> x.Id == id);
+          
+            if (hotelRoom == null)
+            {
+                baseResponse.Description = "hotel not found";
+                baseResponse.StatusCode = StatusCode.NotFound;
+                return baseResponse; 
+            }
+
+            baseResponse.Data = await _hotelRoomRepository.DeleteAsync(hotelRoom);
+            baseResponse.StatusCode = StatusCode.OK;
+            return baseResponse;
+        }
+        catch (Exception e)
+        {
+            return new BaseResponse<bool>()
+            {
+                Description = $"[DeleteHotel] : {e.Message}",
+                StatusCode = StatusCode.InternalServerError
+            };
+        }
     }
 
     public async Task<IBaseResponse<CreateHotelRoomViewModel>> CreateHotelRoom(CreateHotelRoomViewModel createHotelRoomVm, int hotelId)
@@ -93,7 +149,8 @@ public class HotelRoomService : IHotelRoomService
                 HotelId = hotelId,
                 FloorNumber = createHotelRoomVm.FloorNumber, 
                 Price = createHotelRoomVm.Price,
-                RoomType = (RoomType)Convert.ToInt32(createHotelRoomVm.RoomType)
+                RoomType = (RoomType)Convert.ToInt32(createHotelRoomVm.RoomType),
+                Description = createHotelRoomVm.Description
             };
 
             await _hotelRoomRepository.CreateAsync(hotelRoom);
@@ -111,9 +168,40 @@ public class HotelRoomService : IHotelRoomService
         return baseResponse; 
     }
 
-    public Task<IBaseResponse<HotelRoom>> EditHotelRoom(GetHotelRoomsViewModel getHotelRoomsVm)
+    public async Task<IBaseResponse<HotelRoom>> EditHotelRoom(CreateHotelRoomViewModel getHotelRoomsVm)
     {
-        throw new NotImplementedException();
+        var baseResponse = new BaseResponse<HotelRoom>();
+        try
+        {
+            var hotelRoom = await _hotelRoomRepository.GetAll().FirstOrDefaultAsync(x=> x.Id == getHotelRoomsVm.Id);
+            if (hotelRoom == null)
+            {
+                baseResponse.StatusCode = StatusCode.NotFound;
+                baseResponse.Description = "hotel not found";
+                return baseResponse;
+            }
+
+            hotelRoom.HotelId = getHotelRoomsVm.HotelId;
+            hotelRoom.RoomType = (RoomType)Convert.ToInt32(getHotelRoomsVm.RoomType);
+            hotelRoom.Description = getHotelRoomsVm.Description;
+            hotelRoom.FloorNumber = getHotelRoomsVm.FloorNumber;
+            hotelRoom.Price = getHotelRoomsVm.Price; 
+
+            baseResponse.Data = hotelRoom;
+            baseResponse.StatusCode = StatusCode.OK;
+
+            
+            await _hotelRoomRepository.UpdateAsync(baseResponse.Data);
+            return baseResponse; 
+        }
+        catch (Exception e)
+        {
+            return new BaseResponse<HotelRoom>()
+            {
+                Description = $"[CreateHotel] : {e.Message}",
+                StatusCode = StatusCode.InternalServerError
+            };
+        }
     }
 
     public BaseResponse<Dictionary<int, string>> GetTypes()

@@ -163,6 +163,7 @@ public class HotelService : IHotelService
         {
             var hotel = await _hotelRepository.GetAll().FirstOrDefaultAsync(x=> x.Id == id);
             var hotelRooms = await _hotelRoomRepository.GetAll().Where(x => x.HotelId == id).ToListAsync();
+            var hotelAddress = await _hotelAddressRepository.GetAll().FirstOrDefaultAsync(x => x.HotelId == id);
             if (hotel == null)
             {
                 baseResponse.Description = "hotel not found";
@@ -174,6 +175,8 @@ public class HotelService : IHotelService
             {
                 await _hotelRoomRepository.DeleteAsync(hotelRoom); 
             }
+
+            await _hotelAddressRepository.DeleteAsync(hotelAddress); 
             baseResponse.Data = await _hotelRepository.DeleteAsync(hotel);
             baseResponse.StatusCode = StatusCode.OK;
             return baseResponse;
@@ -233,6 +236,8 @@ public class HotelService : IHotelService
         try
         {
             var hotel = await _hotelRepository.GetAll().FirstOrDefaultAsync(x=> x.Id == createHotelViewModel.Id);
+            var hotelAddress = await _hotelAddressRepository.GetAll()
+                .FirstOrDefaultAsync(x => x.HotelId == createHotelViewModel.Id);
             if (hotel == null)
             {
                 baseResponse.StatusCode = StatusCode.NotFound;
@@ -244,11 +249,18 @@ public class HotelService : IHotelService
             hotel.Description = createHotelViewModel.Description;
             hotel.Rating = (HotelRating)Convert.ToInt32(createHotelViewModel.Rating);
 
+            hotelAddress.Country = createHotelViewModel.Country;
+            hotelAddress.City = createHotelViewModel.City;
+            hotelAddress.Street = createHotelViewModel.Street;
+            hotelAddress.Building = createHotelViewModel.Building;
+            hotelAddress.HotelId = createHotelViewModel.Id;
+
             baseResponse.Data = hotel;
             baseResponse.StatusCode = StatusCode.OK;
 
-            await _hotelRepository.UpdateAsync(baseResponse.Data); 
             
+            await _hotelRepository.UpdateAsync(baseResponse.Data);
+            await _hotelAddressRepository.UpdateAsync(hotelAddress); 
             return baseResponse; 
         }
         catch (Exception e)

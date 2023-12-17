@@ -43,6 +43,9 @@
                     }
                     @if (User.Identity.IsAuthenticated)
                     {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Reservation" asp-action="GetUserReservations">My Reservations</a>
+                        </li>
                         <form method="post" asp-controller="Account" asp-action="Logout">
                            <input class="nav-link text-dark" type="submit" value="Logout"/>
                         </form>

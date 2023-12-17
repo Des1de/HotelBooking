@@ -17,4 +17,9 @@ public class CreateHotelRoomViewModel
     [Display(Name = "Тип комнаты")]
     [Required(ErrorMessage = "Выберите тип комнаты")]
     public string RoomType { get; set; }
+    
+    [Display(Name = "Описание")]
+    [Required(ErrorMessage = "Введите описание комнаты")]
+    [MinLength(50, ErrorMessage = "Минимальная длина должна быть больше 50 символов")]
+    public string Description { get; set; }
 }

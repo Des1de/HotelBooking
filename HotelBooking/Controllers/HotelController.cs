@@ -73,6 +73,33 @@ public class HotelController : Controller
 
     }
     
+    [HttpGet]
+    public async Task<IActionResult> EditHotel(int id)
+    {
+        var responce = await _hotelService.GetHotel(id); 
+        var hotel = new CreateHotelViewModel()
+        {
+                Name = responce.Data.Name, Description = responce.Data.Description,
+                Rating = responce.Data.Rating, Country = responce.Data.Country,
+                City = responce.Data.City, Street = responce.Data.Street,
+                Building = responce.Data.Building
+        };
+        return View(hotel); 
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> EditHotel(CreateHotelViewModel model)
+    {
+        if (ModelState.IsValid)
+        {
+            await _hotelService.EditHotel(model); 
+            return RedirectToAction("GetHotels"); 
+        }
+
+        return View(model);
+
+    }
+    
     [HttpPost]
     public JsonResult GetTypes()
     {

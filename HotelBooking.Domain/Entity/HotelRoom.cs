@@ -8,6 +8,7 @@ public class HotelRoom
     public int HotelId { get; set; }
     public int FloorNumber { get; set; }
     public double Price { get; set; }
+    public string Description { get; set; }
     public IEnumerable<HotelRoomPhoto> HotelRoomPhotos { get; set; }
     public IEnumerable<HotelRoomReview> HotelRoomReviews { get; set; }
     public RoomType RoomType { get; set; }

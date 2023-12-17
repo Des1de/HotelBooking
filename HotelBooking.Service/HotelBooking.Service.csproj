@@ -11,4 +11,10 @@
       <ProjectReference Include="..\HotelBooking.Domain\HotelBooking.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Reference Include="Microsoft.AspNetCore.Http.Abstractions">
+        <HintPath>..\..\..\..\..\usr\lib\dotnet\shared\Microsoft.AspNetCore.App\7.0.14\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
 </Project>

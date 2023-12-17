@@ -20,22 +20,34 @@
   <div class="container">
     <h1 class="mt-5">Hotel List</h1>
     <div class="row">
+      
+      @if (Model == null)
+      {
+        <h5 >There are no hotels</h5>
+        <h5 class="card-title"><a class="nav-link text-dark" asp-area="" asp-controller="Hotel" asp-action="CreateHotel">Create hotel</a></h5>
+      }
+      
+      else
+      {
+        <h5 class="card-title"><a class="nav-link text-dark" asp-area="" asp-controller="Hotel" asp-action="CreateHotel">Create hotel</a></h5>
         @foreach (var hotel in Model)
         {
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="hotel1.jpg" class="card-img-top" alt="Hotel Image">
-                    <div class="card-body">
-                        <h5 class="card-title"><a class="nav-link text-dark" asp-area="" asp-controller="Hotel" asp-action="GetHotel" asp-route-id="@hotel.Id">@hotel.Name</a></h5>
-                           <p class="card-text">@hotel.Description</p>
-                           <p class="card-text">Rating: @hotel.Rating</p>
-                           <p class="card-text">Country: @hotel.Country</p>
-                           <p class="card-text">City: @hotel.City</p>
-                    </div>
-                </div>
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <img src="hotel1.jpg" class="card-img-top" alt="Hotel Image">
+              <div class="card-body">
+                <h5 class="card-title"><a class="nav-link text-dark" asp-area="" asp-controller="Hotel" asp-action="GetHotel" asp-route-id="@hotel.Id">@hotel.Name</a></h5>
+                <p class="card-text">@hotel.Description</p>
+                <p class="card-text">Rating: @hotel.Rating</p>
+                <p class="card-text">Country: @hotel.Country</p>
+                <p class="card-text">City: @hotel.City</p>
+              </div>
             </div>
+          </div>
         }
-        
+      }
+
+
     </div>
   </div>
 

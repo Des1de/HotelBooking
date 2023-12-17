@@ -17,8 +17,12 @@
     <!-- Форма для создания отеля -->
     <form method="post" asp-controller="HotelRoom" asp-action="CreateHotelRoom">
         <div class="mb-3">
-                    <label for="name" class="form-label">Hotel Id</label>
-                    <input asp-for="HotelId" type="text" class="form-control" id="name" placeholder="Enter hotel Id">
+            <label for="name" class="form-label">Hotel Id</label>
+            <input asp-for="HotelId" type="text" class="form-control" id="name" placeholder="Enter hotel Id">
+        </div>
+        <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea asp-for="Description" class="form-control" id="description" rows="3" placeholder="Enter room description"></textarea>
                 </div>
         <div class="mb-3">
             <label for="name" class="form-label">Floor number</label>

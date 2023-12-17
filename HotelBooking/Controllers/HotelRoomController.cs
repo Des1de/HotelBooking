@@ -27,6 +27,18 @@ public class HotelRoomController : Controller
     }
     
     [HttpGet]
+    public async Task<IActionResult> GetHotelRoom(int id)
+    {
+        var response = await _hotelRoomService.GetHotelRoom(id);
+        if (response.StatusCode == Domain.Enum.StatusCode.OK )
+        {
+            return View(response.Data); 
+        }
+
+        return RedirectToAction("Error","Home");
+    }
+    
+    [HttpGet]
     public async Task<IActionResult> CreateHotelRoom(int id)
     {
         
@@ -49,10 +61,48 @@ public class HotelRoomController : Controller
 
     }
     
+    [HttpGet]
+    public async Task<IActionResult> EditHotelRoom(int id)
+    {
+        var responce = await _hotelRoomService.GetHotelRoom(id);
+        return View(new CreateHotelRoomViewModel()
+        {
+            Id = responce.Data.Id,
+            HotelId = responce.Data.HotelId,
+            RoomType = responce.Data.RoomType,
+            FloorNumber = responce.Data.FlourNumber,
+            Description = responce.Data.Description,
+            Price = responce.Data.Price
+        }); 
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> EditHotelRoom(CreateHotelRoomViewModel model)
+    {
+        if (ModelState.IsValid)
+        {
+            await _hotelRoomService.EditHotelRoom(model); 
+            return RedirectToAction("GetHotelRooms", "HotelRoom", model.HotelId); 
+        }
+
+        return View(model);
+
+    }
+    
     [HttpPost]
     public JsonResult GetTypes()
     {
         var types = _hotelRoomService.GetTypes();
         return Json(types.Data);
+    }
+    
+    public async Task<IActionResult> DeleteHotelRoom(int id)
+    {
+        var response = await _hotelRoomService.DeleteHotelRoom(id);
+        if (response.StatusCode == Domain.Enum.StatusCode.OK)
+        {
+            return RedirectToAction("GetHotels","Hotel"); 
+        }
+        return RedirectToAction("Error","Home");
     }
 }

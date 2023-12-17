@@ -18,7 +18,7 @@
 </head>
 <body>
 <div class="container">
-    <h1 class="mt-5">Hotel List</h1>
+    <h1 class="mt-5">Rooms List</h1>
     <div class="row">
         @if (Model == null)
                 {
@@ -34,7 +34,7 @@
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
-                                        <h5 class="card-title"><a class="nav-link text-dark" asp-area="" asp-controller="Hotel" asp-action="GetHotel" asp-route-id="@hotelRoom.HotelId">@hotelRoom.HotelName</a></h5>
+                                        <h5 class="card-title"><a class="nav-link text-dark" asp-area="" asp-controller="HotelRoom" asp-action="GetHotelRoom" asp-route-id="@hotelRoom.Id">@hotelRoom.HotelName Room on @hotelRoom.FloorNumber flour</a></h5>
                                         <p class="card-text">@hotelRoom.RoomType</p>
                                         <p class="card-text">Price per Day: @hotelRoom.Price</p>
                                         <p class="card-text">Flour Number: @hotelRoom.FloorNumber</p>
