@@ -41,7 +41,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="SignUp">Sign Up</a>
                         </li>
                     }
-                    @if (User.Identity.IsAuthenticated)
+                    else
                     {
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Reservation" asp-action="GetUserReservations">My Reservations</a>

@@ -36,22 +36,22 @@
             <div class="col-md-6">
                 <div class="registration-container">
                     <div class="registration-card">
-                        <h3 class="mb-4 text-center">Регистрация</h3>
+                        <h3 class="mb-4 text-center">Sign Up</h3>
                         <form method="post" asp-controller="Account" asp-action="SignUp">
                             <div class="mb-3">
-                                <label for="username" class="form-label">Электронная почта</label>
-                                <input asp-for="Email"  type="text" class="form-control" placeholder="Введите электронную почту">
+                                <label for="username" class="form-label">Email</label>
+                                <input asp-for="Email"  type="text" class="form-control" placeholder="Enter email">
                             </div>
                             <div class="mb-3">
-                                <label for="password" class="form-label">Пароль</label>
-                                <input asp-for="Password" type="password" class="form-control"  placeholder="Введите пароль">
+                                <label for="password" class="form-label">Password</label>
+                                <input asp-for="Password" type="password" class="form-control"  placeholder="Enter Password">
                             </div>
                             <div class="mb-3">
-                                <label for="confirm-password" class="form-label">Подтвердите пароль</label>
-                                <input asp-for="PasswordConfirm" type="password" class="form-control"  placeholder="Подтвердите пароль">
+                                <label for="confirm-password" class="form-label">Confirm Password</label>
+                                <input asp-for="PasswordConfirm" type="password" class="form-control"  placeholder="Confirm Password">
                             </div>
-                            <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
-                            <a asp-controller="Account" asp-action="SignIn" class="btn btn-link text-muted login-link" >Уже есть аккаунт? Войти</a>
+                            <button type="submit" class="btn btn-primary">SignUp</button>
+                            <a asp-controller="Account" asp-action="SignIn" class="btn btn-link text-muted login-link" >Has account? SignIn</a>
                         </form>
                     </div>
                 </div>

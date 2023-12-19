@@ -24,12 +24,16 @@
       @if (Model == null)
       {
         <h5 >There are no hotels</h5>
-        <h5 class="card-title"><a class="nav-link text-dark" asp-area="" asp-controller="Hotel" asp-action="CreateHotel">Create hotel</a></h5>
+        @if(User.IsInRole("Admin")){
+          <h5 class="card-title"><a class="nav-link text-dark" asp-area="" asp-controller="Hotel" asp-action="CreateHotel">Create hotel</a></h5>
+        }
       }
       
       else
       {
-        <h5 class="card-title"><a class="nav-link text-dark" asp-area="" asp-controller="Hotel" asp-action="CreateHotel">Create hotel</a></h5>
+        @if(User.IsInRole("Admin")){
+          <h5 class="card-title"><a class="nav-link text-dark" asp-area="" asp-controller="Hotel" asp-action="CreateHotel">Create hotel</a></h5>
+        }
         @foreach (var hotel in Model)
         {
           <div class="col-md-4 mb-4">

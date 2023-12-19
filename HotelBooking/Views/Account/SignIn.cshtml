@@ -37,18 +37,17 @@
               <div class="col-md-6">
                   <div class="login-container">
                       <div class="login-card">
-                          <h3 class="mb-4 text-center">Вход</h3>
+                          <h3 class="mb-4 text-center">Sign In</h3>
                           <form autocomplete="on" method="post" asp-controller="Account" asp-action="SignIn">
                               <div class="mb-3">
-                                  <label for="username" class="form-label">Электронная почта</label>
-                                  <input asp-for="Email" type="text" class="form-control"  placeholder="Введите эдектронную почту">
+                                  <label for="username" class="form-label">Email</label>
+                                  <input asp-for="Email" type="text" class="form-control"  placeholder="Enter email">
                               </div>
                               <div class="mb-3">
-                                  <label for="password" class="form-label">Пароль</label>
-                                  <input asp-for="Password" type="password" class="form-control" asp-for="Password" placeholder="Введите пароль">
+                                  <label for="password" class="form-label">Password</label>
+                                  <input asp-for="Password" type="password" class="form-control" asp-for="Password" placeholder="Enter password">
                               </div>
-                              <button type="submit" class="btn btn-primary">Войти</button>
-                              <a href="#" class="btn btn-link text-muted forgot-password-button">Забыли пароль?</a>
+                              <button type="submit" class="btn btn-primary">SignIn</button>
                           </form>
                       </div>
                   </div>
